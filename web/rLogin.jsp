@@ -33,11 +33,13 @@
 
     ResultSet rs1=stmt.executeQuery(select_admin);
     while (rs1.next()){
+        session.setAttribute("username",input_name);
         response.sendRedirect("admin/admin.jsp");
     }
 
     ResultSet rs2 = stmt.executeQuery(select_user);
     while (rs2.next()){
+        session.setAttribute("username",input_name);
         response.sendRedirect("user/user.jsp");
     }
     out.println("<h1>用户名或密码错误，请重新<a href=index.jsp>登录</a>或<a href=Register.jsp>注册</a></h1>");
